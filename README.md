@@ -1,29 +1,28 @@
 # Move To Hotkey Debris Too
 
-Oxygen Not Included 用 Mod。ホットキー設定画面に 2 つの「Move To」アクションを追加します。
+An Oxygen Not Included mod that adds two "Move To" actions to the game's hotkey settings screen:
 
 - Move To (Duplicant)
 - Move To (Debris)
 
-## 機能
+## Features
 
-- 上記 2 つのホットキーを、ゲームのホットキー設定画面から割り当て可能（PLib 使用）
-- ホットキー設定画面でマウスのホイールクリック（Mouse 2）を割り当て可能
-- キー割り当て待ちの状態で Esc を押すと、割り当てを None に設定
-- 本 Mod の 2 つのホットキー同士は、同じキーを重複して割り当て可能
-  （重複検出で他方が解除されません。タイトル画面の重複チェックでも解除されません）
+- Both hotkeys can be assigned from the in-game hotkey settings screen (via PLib).
+- The mouse wheel click (Mouse 2) can be assigned in the hotkey settings screen.
+- Pressing Esc while waiting for a key press sets the binding to None.
+- The mod's two hotkeys may share the same key. Neither the duplicate check in the settings screen nor the one on the title screen unassigns the other.
 
-## 注意
+## Notes
 
-- 初期割り当ては両アクションともホイールクリック（Mouse 2）です。
-- ホイールクリックは、ゲーム標準の `MouseMiddle` と重複して見える場合がありますが、本 Mod のアクションに限り解除されずに割り当てられます。
+- Both actions are bound to the wheel click (Mouse 2) by default.
+- Mouse 2 normally conflicts with the vanilla `MouseMiddle` action, but this mod's actions are exempt, so they are not unassigned.
 
-## 依存
+## Dependencies
 
-- [PLib](https://github.com/peterhaneve/ONIMods)（ILRepack でビルドに統合）
+- [PLib](https://github.com/peterhaneve/ONIMods) (merged into the mod DLL with ILRepack)
 - Harmony
 
-## ビルド
+## Building
 
-`Local.Build.props` にゲームの `Managed` フォルダを指定し、Rider（または .NET SDK 8.0）でビルドします。
-ビルド後、DLL は `ModInstallPath` の `mods\local` にコピーされます。ゲーム起動中は DLL がロックされるため、ゲームを終了してからビルドしてください。
+Set the game's `Managed` folder in `Local.Build.props`, then build with Rider or the .NET SDK 8.0.
+After a build, the DLL is copied to `mods\local` under `ModInstallPath`. The DLL is locked while the game is running, so close the game before building.
