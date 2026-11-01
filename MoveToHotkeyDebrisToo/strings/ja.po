@@ -19,11 +19,3 @@ msgstr "ここに移動 (複製人間)"
 msgctxt "MoveToHotkeyDebrisToo.STRINGS.ACTIONS.MOVE_DEBRIS"
 msgid "Move To (Debris)"
 msgstr "ここに移動 (がれき)"
-
-msgctxt "MoveToHotkeyDebrisToo.STRINGS.INPUT_BINDINGS.ROOT.MOUSEMIDDLE"
-msgid "Mouse 2"
-msgstr "マウス2"
-
-msgctxt "MoveToHotkeyDebrisToo.STRINGS.INPUT_BINDINGS.ROOT.MOUSE2"
-msgid "Mouse 2"
-msgstr "マウス2"
