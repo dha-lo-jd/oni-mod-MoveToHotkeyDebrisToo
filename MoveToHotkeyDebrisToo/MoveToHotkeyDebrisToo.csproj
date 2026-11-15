@@ -73,7 +73,7 @@
         <Exec Command="&quot;$(ILRepackExe)&quot; /parallel $(ILRepackDebugFlag) /lib:&quot;$(GameManagedPath)&quot; /out:&quot;$(TargetDir)merged\$(TargetFileName)&quot; &quot;$(TargetPath)&quot; &quot;$(TargetDir)PLib.dll&quot;" />
     </Target>
 
-    <Target Name="PostBuild" AfterTargets="MergeAssemblies" Condition="'$(ModInstallPath)' != ''">
+    <Target Name="PostBuild" AfterTargets="MergeAssemblies" Condition="'$(ModInstallPath)' != '' and '$(Configuration)' != 'Release'">
         <MakeDir Directories="$(ModInstallPath)" />
         <Delete Files="$(ModInstallPath)\PLib.dll" Condition="Exists('$(ModInstallPath)\PLib.dll')" />
         <Copy SourceFiles="$(TargetDir)merged\$(TargetFileName)" DestinationFolder="$(ModInstallPath)" Condition="Exists('$(TargetDir)merged\$(TargetFileName)')" />
@@ -82,10 +82,10 @@
         <Copy SourceFiles="$(ProjectDir)mod_info.yaml" DestinationFolder="$(ModInstallPath)" Condition="Exists('$(ProjectDir)mod_info.yaml')" />
         <Copy SourceFiles="$(ProjectDir)mod.yaml" DestinationFolder="$(ModInstallPath)" Condition="Exists('$(ProjectDir)mod.yaml')" />
         <ItemGroup>
-            <ModStringFiles Include="$(ProjectDir)strings\*.po" />
+            <ModStringFiles Include="$(ProjectDir)translations\*.po" />
         </ItemGroup>
-        <MakeDir Directories="$(ModInstallPath)\strings" Condition="'@(ModStringFiles)' != ''" />
-        <Copy SourceFiles="@(ModStringFiles)" DestinationFolder="$(ModInstallPath)\strings" Condition="'@(ModStringFiles)' != ''" />
+        <MakeDir Directories="$(ModInstallPath)\translations" Condition="'@(ModStringFiles)' != ''" />
+        <Copy SourceFiles="@(ModStringFiles)" DestinationFolder="$(ModInstallPath)\translations" Condition="'@(ModStringFiles)' != ''" />
         <ItemGroup>
             <ModAnimationFiles Include="$(ProjectDir)ModAssets\anim\**\*.*" Exclude="$(ProjectDir)ModAssets\anim\**\.gitkeep" />
         </ItemGroup>
@@ -93,6 +93,26 @@
             SourceFiles="@(ModAnimationFiles)"
             DestinationFiles="@(ModAnimationFiles->'$(ModInstallPath)\anim\%(RecursiveDir)%(Filename)%(Extension)')"
             Condition="'@(ModAnimationFiles)' != ''" />
+    </Target>
+
+    <!-- Release builds produce a clean distribution folder: <repo>\release\<Mod> (git-ignored). Upload it to the Workshop. -->
+    <Target Name="PackageRelease" AfterTargets="MergeAssemblies" Condition="'$(Configuration)' == 'Release'">
+        <PropertyGroup>
+            <ReleaseDir>$(ProjectDir)..\release\$(TargetName)</ReleaseDir>
+        </PropertyGroup>
+        <ItemGroup>
+            <ReleaseTranslationFiles Include="$(ProjectDir)translations\*.po" />
+            <ReleaseAnimationFiles Include="$(ProjectDir)ModAssets\anim\**\*.*" Exclude="$(ProjectDir)ModAssets\anim\**\.gitkeep" />
+        </ItemGroup>
+        <RemoveDir Directories="$(ReleaseDir)" />
+        <MakeDir Directories="$(ReleaseDir)" />
+        <Copy SourceFiles="$(TargetDir)merged\$(TargetFileName)" DestinationFolder="$(ReleaseDir)" Condition="Exists('$(TargetDir)merged\$(TargetFileName)')" />
+        <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ReleaseDir)" Condition="!Exists('$(TargetDir)merged\$(TargetFileName)')" />
+        <Copy SourceFiles="$(ProjectDir)mod.yaml" DestinationFolder="$(ReleaseDir)" Condition="Exists('$(ProjectDir)mod.yaml')" />
+        <Copy SourceFiles="$(ProjectDir)mod_info.yaml" DestinationFolder="$(ReleaseDir)" Condition="Exists('$(ProjectDir)mod_info.yaml')" />
+        <Copy SourceFiles="$(ProjectDir)..\Workshop\preview.png" DestinationFolder="$(ReleaseDir)" Condition="Exists('$(ProjectDir)..\Workshop\preview.png')" />
+        <Copy SourceFiles="@(ReleaseTranslationFiles)" DestinationFolder="$(ReleaseDir)\translations" Condition="'@(ReleaseTranslationFiles)' != ''" />
+        <Copy SourceFiles="@(ReleaseAnimationFiles)" DestinationFiles="@(ReleaseAnimationFiles->'$(ReleaseDir)\anim\%(RecursiveDir)%(Filename)%(Extension)')" Condition="'@(ReleaseAnimationFiles)' != ''" />
     </Target>
 
 </Project>
