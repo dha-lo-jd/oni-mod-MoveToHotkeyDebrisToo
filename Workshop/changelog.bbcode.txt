@@ -1,0 +1,11 @@
+[h1]Changelog / 更新履歴[/h1]
+
+[h2]1.0.1[/h2]
+[b]English[/b]
+[list]
+[*] Fixed the mod showing Japanese text when the game language is not Japanese.
+[/list]
+[b]日本語[/b]
+[list]
+[*] ゲームの言語が日本語でないときも、日本語で表示される問題を修正しました。
+[/list]

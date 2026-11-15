@@ -6,3 +6,4 @@ riderModule.iml
 Local.Build.props
 *.sln.DotSettings.user
 .idea/
+release/
