@@ -1,0 +1,25 @@
+[h1]Move To Hotkey: Debris Too[/h1]
+
+Lets you assign [b]separate hotkeys[/b] to the "Move To" command for [b]Duplicants[/b] and for [b]debris[/b].
+
+[h2]Features[/h2]
+[list]
+[*] Adds two actions to the game's [b]key bindings[/b] screen (under the [b]PLib[/b] group): [b]Move To (Duplicant)[/b] and [b]Move To (Debris)[/b]
+[*] By default, both are assigned to the [b]middle mouse button[/b] (Mouse 2)
+[*] The two actions can share the same key: assigning the same key to both does [b]not[/b] remove the other's assignment. Neither the duplicate check in the key bindings screen nor the one on the title screen unassigns them
+[*] The middle mouse button can be assigned in the key bindings screen
+[*] To unbind a key, press [b]Esc[/b] while the game is waiting for a new key input
+[*] English and Japanese
+[/list]
+
+[h2]Notes[/h2]
+[list]
+[*] The middle mouse button normally conflicts with the vanilla Mouse 2 action, but this mod's two actions are exempt, so they are not unassigned.
+[*] Only the two actions of this mod are exempt from the duplicate check; other actions are checked as usual.
+[/list]
+
+[h2]Credits[/h2]
+Uses [b]PLib[/b] by Peter Han (MIT License) for the key bindings; it is bundled in the mod, so nothing else needs to be installed.
+
+[h2]Source[/h2]
+[url=https://github.com/dha-lo-jd/oni-mod-MoveToHotkeyDebrisToo]GitHub[/url] (MIT License)
