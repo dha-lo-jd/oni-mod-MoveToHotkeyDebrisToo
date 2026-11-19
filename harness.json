@@ -1,0 +1,5 @@
+{
+  "build": ["dotnet build MoveToHotkeyDebrisToo/MoveToHotkeyDebrisToo.csproj -v q -p:ModInstallPath=F:/_System/Documents/Klei/OxygenNotIncluded/mods/local/MoveToHotkeyDebrisToo"],
+  "required_mods": ["MoveToHotkeyDebrisToo.Local"],
+  "save": "Live Human Testing.sav"
+}

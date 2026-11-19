@@ -2,5 +2,6 @@
     <PropertyGroup>
         <GameManagedPath>C:\Path\To\OxygenNotIncluded\OxygenNotIncluded_Data\Managed</GameManagedPath>
         <ModInstallPath>C:\Path\To\mods\local\MoveToHotkeyDebrisToo</ModInstallPath>
+        <HarnessDllPath>C:\Users\dha_1\ONI-Modding\GravitasTestHarness\Gravitas.TestHarness\bin\Debug\netstandard2.1\Gravitas.TestHarness.dll</HarnessDllPath>
     </PropertyGroup>
 </Project>
