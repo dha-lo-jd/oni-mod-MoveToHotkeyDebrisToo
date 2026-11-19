@@ -9,13 +9,4 @@ public static class STRINGS
         public static LocString MOVE_DUPLICANT = "Move To (Duplicant)";
         public static LocString MOVE_DEBRIS = "Move To (Debris)";
     }
-
-    public static class INPUT_BINDINGS
-    {
-        public static class ROOT
-        {
-            public static LocString MOUSEMIDDLE = "Mouse 2";
-            public static LocString MOUSE2 = "Mouse 2";
-        }
-    }
 }

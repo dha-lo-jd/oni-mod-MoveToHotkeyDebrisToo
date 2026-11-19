@@ -1,5 +1,15 @@
 [h1]Changelog / 更新履歴[/h1]
 
+[h2]1.0.3[/h2]
+[b]English[/b]
+[list]
+[*] Updated for U60 (the game's own Move To shortcuts are now fixed to Q; this mod's rebindable hotkeys take over the buttons and their tooltips).
+[/list]
+[b]日本語[/b]
+[list]
+[*] U60 に対応しました（ゲーム本体の「移動先」ショートカットは Q 固定になったため、このMod の再割り当て可能なホットキーがボタンとツールチップを置き換えます）。
+[/list]
+
 [h2]1.0.2[/h2]
 [b]English[/b]
 [list]
