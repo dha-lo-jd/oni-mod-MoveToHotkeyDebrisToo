@@ -14,7 +14,7 @@ An Oxygen Not Included mod that adds two "Move To" actions to the game's hotkey 
 
 ## Notes
 
-- Requires U60 or later of the game. Since U60 the game itself has "Move To" shortcuts, but both are fixed to the build menu `Q` key and have no entry on the hotkey settings screen. This mod's actions take over the buttons (and their tooltips) so they can be rebound. The vanilla `Q` shortcut keeps working as well.
+- Works on both U60 and U59 (game build 744825 or later). The Move To buttons have no shortcut key before U60; since U60 they are fixed to the build menu `Q` key and have no entry on the hotkey settings screen. Either way, this mod's actions take over the buttons so they can be rebound (on U60 the tooltips are taken over too, and the vanilla `Q` shortcut keeps working as well; on U59 the tooltips do not show the key).
 - Both actions are bound to the wheel click (Mouse 2) by default.
 - Mouse 2 normally conflicts with the vanilla `MouseMiddle` action, but this mod's actions are exempt, so they are not unassigned.
 

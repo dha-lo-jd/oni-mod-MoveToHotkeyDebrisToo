@@ -3,7 +3,7 @@
 ONI mod。ビルド: `dotnet build MoveToHotkeyDebrisToo.sln`（Debug は `Local.Build.props` の `ModInstallPath` へコピーする。`MoveToHotkeyDebrisToo/` 配下に置く。確認だけなら `-p:ModInstallPath=`）。csproj は `MoveToHotkeyDebrisToo/` の下にあり、`harness.json` は repo 直下。
 
 ## 何をする Mod か
-「移動先（複製人間）」「移動先（ガラクタ）」の 2 つのホットキーを、キー設定画面（PLib 経由）に追加する。既定は両方ホイールクリック（Mouse 2）。U60 でバニラにも Move To のボタンができたが Q 固定でキー設定に出ないため、`UserMenu.AddButton` のプレフィックスでボタンのショートカットとツールチップをこの Mod のアクションに差し替える（バニラの Q も効く）。U60 以降が必要（`minimumSupportedBuild` 763796）。
+「移動先（複製人間）」「移動先（ガラクタ）」の 2 つのホットキーを、キー設定画面（PLib 経由）に追加する。既定は両方ホイールクリック（Mouse 2）。U60 でバニラにも Move To のボタンができたが Q 固定でキー設定に出ないため、`UserMenu.AddButton` のプレフィックスでボタンのショートカットとツールチップをこの Mod のアクションに差し替える（バニラの Q も効く）。U60 と U59 の両方で動く（`minimumSupportedBuild` 744825。U59 のバニラのボタンにはショートカットもツールチップの `{Hotkey}` もないので、ボタンに割り当てるだけでツールチップにキーは出ない）。コード（テスト以外）は U59 でも変更なし。`u59` ブランチはテストを U59 で通すための参照用（`Action.MoveRelocateTo` を使わない）。
 
 ## 構成
 - `ModActions.cs`: PLib のアクション登録と、翻訳後のタイトル更新（`RefreshTitles`。翻訳で STRINGS のフィールドが別オブジェクトに置き換わるため。`LocString` を `object` で保持するのは、ゲームが名前空間内の null の `LocString` フィールドでつまずくのを避けるため）。
